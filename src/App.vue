@@ -1,36 +1,34 @@
 <template>
  <div id='app'>
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
   <h1>Search</h1>
-  <input type='text' v-model='query' @keyup='getResult(query)'>
+  <input type='text' v-model='genre' v-on:click='getResult(genre, cast)'>
   <div v-for='result in results' :key='result.id'>
    <p>{{result.title}}</p>
-   <img v-bind:src="'http://image.tmdb.org/t/p/w500/' +    result.poster_path" width='100px'>
+   <img v-bind:src="'http://image.tmdb.org/t/p/w500/' +  result.poster_path" width='200px'>
    </div>
  </div>
 </template>
 
 <script>
 import axios from "axios";
-import HelloWorld from "./components/HelloWorld";
 
 export default {
   name: "App",
-  components: {
-    HelloWorld
-  },
+  components: {},
   data() {
     return {
-      query: "",
+      genre: "",
       results: "",
     };
   },
   methods: {
-    getResult(query) {
+    getResult(genre, cast) {
       axios
         .get(
-          "https://api.themoviedb.org/3/search/movie?api_key=a4e8485214a389b8af6f13a3549063d5&query=" +
-            query
+          "https://api.themoviedb.org/3/discover/movie?api_key=a4e8485214a389b8af6f13a3549063d5&with_genres=" +
+            genre +
+            "&with_cast" +
+            cast
         )
         .then((response) => {
           this.results = response.data.results;
@@ -63,3 +61,4 @@ export default {
   color: #42b983;
 }
 </style>
+
