@@ -2,9 +2,11 @@
  <div class='search'>
   <h1>Search</h1>
   <input type='text' v-model='query' @keyup='getResult(query)'>
-  <div v-for='result in results' :key='result.id'>
-   <p>{{result.title}}</p>
-   <img v-bind:src="'http://image.tmdb.org/t/p/w500/' +    result.poster_path" width='100px'>
+  <div id="container" v-for='result in results' :key='result.id'>
+   <p><strong>{{result.title}}</strong></p>
+   <p>Release Date: {{result.release_date}}</p>
+   <img v-bind:src="'http://image.tmdb.org/t/p/w500/' +    result.poster_path" width='200px'>
+   <p>Plot: {{result.overview}}</p>
   </div>
  </div>
 </template>
