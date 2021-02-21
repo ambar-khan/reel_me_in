@@ -102,6 +102,7 @@ export default {
 };
 </script>
 
+
 <style>
 #app {
   text-align: center;
@@ -156,3 +157,4 @@ export default {
       margin: 5px;
     }
 </style>
+
