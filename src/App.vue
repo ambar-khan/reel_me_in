@@ -1,7 +1,7 @@
 <template>
  <div id='app'>
   <header>
-     <img src="./assets/logo.png" alt="Reel Me In Logo" id="logo"> 
+     <img src="./assets/logo.png" alt="Reel Me In Logo" id="logo">
       <h1>
           Reel Me In
       </h1>
@@ -43,7 +43,9 @@
           <input type="submit" value="Search" class="button">
       </form>
   </header>
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="movie-container">
+    <Movie />
+  </div>
   <h1>Search</h1>
   <input type='text' v-model='query' @keyup='getResult(query)'>
   <div v-for='result in results' :key='result.id'>
@@ -54,12 +56,12 @@
 </template>
 <script>
 import axios from "axios";
-import HelloWorld from "./components/HelloWorld";
+import Movie from "./components/Movie";
 
 export default {
   name: "App",
   components: {
-    HelloWorld
+    Movie
   },
   data() {
     return {
@@ -85,24 +87,8 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #ffffff;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
 }
     header {
         background: linear-gradient(0deg, rgba(215,38,56,0) 0%, rgba(215,38,56,1) 100%);
@@ -110,7 +96,7 @@ export default {
     }
     #logo {
         max-width: 100%;
-        width: 100px;
+        width: 300px;
         margin: 18px auto;
     }
     #formpos {
@@ -137,5 +123,12 @@ export default {
         box-shadow: none;
         transform: translate(5px, 5px);
         outline: none;
+    }
+    #movie-container {
+      display: flex;
+      justify-content: space-around;
+      align-content: flex-start;
+      padding: 50px;
+      flex-wrap: wrap;
     }
 </style>
