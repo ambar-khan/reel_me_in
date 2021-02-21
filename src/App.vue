@@ -63,7 +63,7 @@ import Movie from "./components/Movie";
 export default {
   name: "App",
   components: {
-    Movie,
+    Movie
   },
   data() {
     return {
