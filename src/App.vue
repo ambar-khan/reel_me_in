@@ -1,12 +1,18 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+ <div id='app'>
+  <Search/>
+ </div>
 </template>
+<script>
+import Search from "./components/Search";
+
+export default {
+  name: "App",
+  components: {
+    Search,
+  },
+};
+</script>
 
 <style>
 #app {
