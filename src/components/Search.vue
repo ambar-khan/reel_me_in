@@ -10,7 +10,7 @@
 </template>
 <script>
 import axios from "axios";
-export default {
+/*export default {
   name: "search",
   data() {
     return {
@@ -31,5 +31,5 @@ export default {
       console.log(this.results);
     },
   },
-};
+};*/
 </script>
